@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klima</title>
+    <link rel="icon" href="images/logo_inverted.png" type="png" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container text-white">
+      <section class="mt-4">
+        <div class="row">
+          <div class="col-lg-3 bg-custom mb-4 text-center">
+            <div class="h-100 d-flex flex-column align-items-center">
+              <img src="images/logo.png" alt="" srcset="" />
+              <form id="form" class="d-flex search">
+                <input
+                  type="text"
+                  class="form-control me-2 w-100 bg-custom"
+                  id="search-bar"
+                  placeholder="Search for places..."
+                  required
+                />
+                <button class="btn bg-custom text-white">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
+
+              <p class="fw-bold font-lg">
+                <span class="text-center font-xl" id="temp"></span>
+                <sup> °C </sup>
+              </p>
+              <p class="text-capitalize" id="description"></p>
+              <p>
+                <i class="bi bi-clouds fs-3 me-3"></i><span id="clouds"></span>
+                <small>(Cloudiness)</small>
+              </p>
+              <div class="location p-4 rounded-4">
+                <h4 id="city" class="text-white text-center fw-bold"></h4>
+              </div>
+              <small class="my-5 my-lg-auto"
+                >For more information, please visit
+                <a
+                  href="https://openweathermap.org/"
+                  class="text-white"
+                  target="_blank"
+                  >OpenWeatherMap</a
+                ></small
+              >
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <h2 class="fw-bold my-4 text-center text-lg-start">
+              Forecast this Week
+            </h2>
+            <div class="row mb-4">
+              <div class="col-lg-2 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center">
+                    <h5 class="fw-bold" id="initial-day"></h5>
+                    <img src="" alt="" id="initial-icon" />
+                    <span class="fw-bold fs-2 d-block" id="initial-temp"></span>
+                    <small
+                      class="text-capitalize d-block"
+                      id="initial-desc"
+                    ></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center">
+                    <h5 class="fw-bold" id="first-day"></h5>
+                    <img src="" alt="" id="first-icon" />
+                    <span class="fw-bold fs-2 d-block" id="first-temp"></span>
+                    <small
+                      class="text-capitalize d-block"
+                      id="first-desc"
+                    ></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center">
+                    <h5 class="fw-bold" id="second-day"></h5>
+                    <img src="" alt="" id="second-icon" />
+                    <span class="fw-bold fs-2 d-block" id="second-temp"></span>
+                    <small
+                      class="text-capitalize d-block"
+                      id="second-desc"
+                    ></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center">
+                    <h5 class="fw-bold" id="third-day"></h5>
+                    <img src="" alt="" id="third-icon" />
+                    <span class="fw-bold fs-2 d-block" id="third-temp"></span>
+                    <small
+                      class="text-capitalize d-block"
+                      id="third-desc"
+                    ></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center">
+                    <h5 class="fw-bold" id="fourth-day"></h5>
+                    <img src="" alt="" id="fourth-icon" />
+                    <span class="fw-bold fs-2 d-block" id="fourth-temp"></span>
+                    <small
+                      class="text-capitalize d-block"
+                      id="fourth-desc"
+                    ></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center">
+                    <h5 class="fw-bold" id="fifth-day"></h5>
+                    <img src="" alt="" id="fifth-icon" />
+                    <span class="fw-bold fs-2 d-block" id="fifth-temp"></span>
+                    <small
+                      class="text-capitalize d-block"
+                      id="fifth-desc"
+                    ></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h2 class="fw-bold mb-4 text-center text-lg-start">
+                Today's Highlights
+              </h2>
+              <div class="col-lg-4 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center text-lg-start">
+                    <h6 class="card-title">Humidity</h6>
+                    <div
+                      class="d-flex flex-column justify-content-evenly h-100"
+                    >
+                      <span class="font-lg" id="humidity"></span>
+                      <small class="d-block"
+                        >Feels like:
+                        <span id="feels"></span>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center text-lg-start">
+                    <h6 class="card-title">Wind Status</h6>
+                    <div
+                      class="d-flex flex-column justify-content-evenly h-100"
+                    >
+                      <p><span class="font-lg" id="wind"></span>km/h</p>
+                      <small class="d-block"
+                        >Direction: <span id="direction"></span
+                      ></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center text-lg-start">
+                    <h6 class="card-title">Sunrise & Sunset</h6>
+                    <div
+                      class="d-flex align-items-center justify-content-center justify-content-lg-start"
+                    >
+                      <i class="bi bi-sunrise-fill font-lg me-3"></i>
+                      <div>
+                        <p id="sunrise" class="mb-0"></p>
+                        <small class="">Sunrise</small>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center justify-content-lg-start"
+                    >
+                      <i class="bi bi-sunset-fill font-lg me-3"></i>
+                      <div>
+                        <p id="sunset" class="mb-0"></p>
+                        <small class="">Sunset</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center text-lg-start">
+                    <h6 class="card-title">Temperature</h6>
+                    <div
+                      class="d-flex align-items-center justify-content-center justify-content-lg-start"
+                    >
+                      <i class="bi bi-thermometer-high font-lg me-3"></i>
+                      <div>
+                        <p id="max-temp" class="mb-0"></p>
+                        <small class="">Max temperature</small>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center justify-content-lg-start"
+                    >
+                      <i class="bi bi-thermometer-low font-lg me-3"></i>
+                      <div>
+                        <p id="min-temp" class="mb-0"></p>
+                        <small class="">Min temperature</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center text-lg-start">
+                    <h6 class="card-title">Visibility & Pressure</h6>
+                    <div
+                      class="d-flex flex-column justify-content-evenly h-100"
+                    >
+                      <div>
+                        <p class="mb-0">
+                          <span class="fs-1" id="visibility"></span> km
+                        </p>
+                        <small class="">Visibility</small>
+                      </div>
+                      <div>
+                        <p class="mb-0">
+                          <span class="fs-1" id="pressure"></span> hPa
+                        </p>
+                        <small class="">Pressure</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card bg-custom">
+                  <div class="card-body text-center text-lg-start">
+                    <h6 class="card-title">Coordinates</h6>
+                    <div
+                      class="d-flex flex-column justify-content-evenly h-100"
+                    >
+                      <div
+                        class="d-flex align-items-center justify-content-center justify-content-lg-start"
+                      >
+                        <span class="font-lg me-3">λ</span>
+                        <div>
+                          <p id="lon" class="mb-0"></p>
+                          <small class="">Longitude</small>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex align-items-center justify-content-center justify-content-lg-start"
+                      >
+                        <span class="font-lg me-3">φ</span>
+                        <div>
+                          <p id="lat" class="mb-0"></p>
+                          <small class="">Latitude</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="container border-top border-light py-2 mt-4 opacity-75">
+        <div class="d-flex justify-content-center justify-content-lg-between">
+          <small>
+            &copy;<span id="year"></span> John Christopher Enriquez</small
+          >
+          <small class="d-none d-lg-block">
+            Created using
+            <a
+              href="https://openweathermap.org/api"
+              target="_blank"
+              class="text-white"
+              >OpenWeatherMap API</a
+            >
+          </small>
+        </div>
+      </footer>
+    </main>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
